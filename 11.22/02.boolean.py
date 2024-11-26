@@ -1,4 +1,7 @@
-# 与运算，只有所有都为 True，与运算的结果才是 True
+# 逻辑运算符的优先级
+# not > and > or
+
+# 与运算，只有所有都为 True，与运算的结果才是 True，否则结果是 False
 print(True and True)
 print(True and False)
 print(False and False)
@@ -12,6 +15,7 @@ print(not True)
 print(not False)
 
 age = input('请输入你的年龄: ');
+# 将字符串转换成整数
 age = int(age)
 if age >= 18:
     print('adult')
