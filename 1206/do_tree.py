@@ -55,13 +55,20 @@ def draw_tree(l, level):
 
     l = 3.0 / 4.0 * l
 
+    # lt() 函数用于设置画笔的方向，单位为度，默认的方向是向右
     lt(s)
+    # fd() 函数用于向前移动画笔，单位为像素，默认的距离是1
     fd(l)
 
+    # 绘制树的函数，l 是树的长度，level 是树的深度
     if level < lv:
         draw_tree(l, level + 1)
+
+    # bk() 函数用于向后移动画笔，单位为像素，默认的距离是1
     bk(l)
+    # rt() 函数用于设置画笔的方向，单位为度，默认的方向是向右
     rt(2 * s)
+    # fd() 函数用于向前移动画笔，单位为像素，默认的距离是1
     fd(l)
 
     if level < lv:
@@ -71,6 +78,9 @@ def draw_tree(l, level):
 
     width(w)
 
+# speed() 函数用于设置画笔的速度，单位为像素，默认的速度是6，最快的速度是0，最慢的速度是10
+# speed() 函数必须在调用其他绘图函数之前调用，否则会报错
+# normal 是正常的速度，fast 是快速的速度，fastest 是最快的速度，slowest 是最慢的速度
 speed("fastest")
 
 draw_tree(l, 4)
