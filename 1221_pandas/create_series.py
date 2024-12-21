@@ -12,17 +12,17 @@
 #
 from pandas import Series
 
+# 创建 list 对象
 lst = ['python', 'c++', 'c#', 'java']
-# 创建 Series 对象，索引默认为从 0 开始的整数序列
+# 通过列表创建 Series 对象，索引默认为从 0 开始的整数序列
 ser1 = Series(lst)
 print(ser1)
 
-# 创建 Series 对象
-# 指定索引，索引为 a、b、c、d
-# 索引的长度必须和数据的长度一致，否则会报错
+# 通过列表创建 Series 对象，指定索引，索引为 a、b、c、d，索引的长度必须和数据的长度一致，否则会报错
 ser2 = Series(lst, index=['a', 'b', 'c', 'd'])
 print(ser2)
 
+# 创建 dict 对象，键为字符串，值为整数
 score_dict = {
     'python': 100,
     'c++': 99,
@@ -30,7 +30,19 @@ score_dict = {
     'java': 97
 }
 
-# 创建 Series 对象，索引默认为字典的键，值为字典的值
-# 索引的顺序为字典的键的顺序
+# 通过字典创建 Series 对象，索引默认为字典的键，值为字典的值，索引的顺序为字典的键的顺序
 ser3 = Series(score_dict)
 print(ser3)
+# 获取索引为 c++ 的值
+print(ser3['c++'])
+# 设置索引为 java 的值为 100
+ser3['java'] = 100
+print(ser3)
+
+# 获取索引，返回的是一个 Index 对象
+print(ser3.index)
+# 获取值，返回的是一个 ndarray 对象
+print(ser3[0])
+# 切片操作
+# 使用数组的切片方法，实现对 series 的切片操作，返回的是一个 Series 对象
+print(ser3[1:])
