@@ -41,6 +41,33 @@ print('*'*50)
 df2 = pd.DataFrame([{'语文': 100, '数学': 100}], index=['学霸'])
 # append() 方法可以将DataFrame对象的指定行添加到DataFrame对象中，添加后的DataFrame对象将包含该行
 # append() 方法返回的是一个DataFrame对象，包含了DataFrame对象的指定行
-df = df.append(df2)
+# 在较新的 pandas 版本中（1.4.0 及更高版本），DataFrame.append() 方法已被弃用，并最终在后续版本中移除。官方建议使用 pd.concat() 方法来代替 append() 方法。
+# df = df.append(df2)
+df = df._append(df2)
 print(df)
 print('*'*50)
+
+# loc 属性用于通过标签获取 DataFrame 对象的行数据，返回的是一个 Series 对象
+# loc 属性返回的是一个 Series 对象，索引为列索引，值为行数据
+# loc 属性的参数可以是一个标签，也可以是一个标签列表
+# loc 属性的参数可以是一个切片，也可以是一个布尔表达式
+# loc 属性的参数可以是一个布尔表达式，返回的是一个 DataFrame 对象，包含了符合条件的行数据
+# loc 属性的参数可以是一个函数，返回的是一个 DataFrame 对象，包含了函数返回值为 True 的行数据
+# loc 属性的参数可以是一个字典，返回的是一个 DataFrame 对象，包含了字典的值为 True 的行数据
+# loc 属性的参数可以是一个列表，返回的是一个 DataFrame 对象，包含了列表中的元素为 True 的行数据
+# loc 属性的参数可以是一个元组，返回的是一个 DataFrame 对象，包含了元组中的元素为 True 的行数据
+# loc 属性的参数可以是一个集合，返回的是一个 DataFrame 对象，包含了集合中的元素为 True 的行数据
+# loc 属性的参数可以是一个 Series 对象，返回的是一个 DataFrame 对象，包含了 Series 对象的值为 True 的行数据
+# loc 属性的参数可以是一个 DataFrame 对象，返回的是一个 DataFrame 对象，包含了 DataFrame 对象的值为 True 的行数据
+print(df.loc['小明'])
+
+# iloc 属性用于通过位置获取 DataFrame 对象的行数据，返回的是一个 Series 对象
+# iloc 属性的参数可以是一个整数，也可以是一个整数列表，返回的是一个 DataFrame 对象，包含了指定位置的行数据
+print(df.iloc[0])
+print('*'*50)
+
+# drop() 方法可以删除DataFrame对象的行，删除后的DataFrame对象将不再包含该行
+# drop() 方法的参数可以是一个标签，也可以是一个标签列表，返回的是一个DataFrame对象，包含了删除后的行数据
+# inplace 参数用于指定是否在原DataFrame对象上进行操作，默认为False，即不修改原DataFrame对象，而是返回一个新的DataFrame对象
+df.drop('小明', inplace=True)
+print(df)
