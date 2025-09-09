@@ -13,4 +13,5 @@ print(array.size)
 # dtype 属性返回数组中元素的类型，包括 int64、float64 等类型
 print(array.dtype)
 # itemsize 属性返回数组中每个元素的字节单位长度，int64 类型的 itemsize 为 8(64/8)
+# float64 类型的 itemsize 为 8
 print(array.itemsize)
